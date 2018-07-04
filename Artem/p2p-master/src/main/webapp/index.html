@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+var webSocket = new WebSocket('ws://127.0.0.1:16160');
+webSocket.send("world");
+var msg = {
+type: "message",
+text: "World",
+date: Date.now()
+};
+
+webSocket.send(JSON.stringify(msg));
+console.log(JSON.stringify(msg));
+webSocket.onmessage = function(evt) { /* Должен получить hello world */ };
+</script>
+</body>
+</html>
